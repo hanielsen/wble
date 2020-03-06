@@ -60,4 +60,6 @@ const disconnect = () => {
   connected.style.display = 'none';
   connectButton.style.display = 'initial';
   disconnectButton.style.display = 'none';
+};
+
   
