@@ -6,7 +6,7 @@ const colourButton = document.getElementById('colourButton');
 const connect = document.getElementById('connect');
 const deviceHeartbeat = document.getElementById('deviceHeartbeat');
 
-const primaryServiceUuid = '1800'; //'6e400001-b5a3-f393-e0a9-e50e24dcca9e';
+const primaryServiceUuid = '0x1800'; //'6e400001-b5a3-f393-e0a9-e50e24dcca9e';
 const receiveCharUuid = '6e400002-b5a3-f393-e0a9-e50e24dcca9e';
 const sendCharUuid = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 
