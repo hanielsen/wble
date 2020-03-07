@@ -13,7 +13,7 @@ const sendCharUuid = '6e400003-b5a3-f393-e0a9-e50e24dcca9e';
 let device, sendCharacteristic, receiveCharacteristic;
 connectButton.onclick = async () => {
   device = await navigator.bluetooth.requestDevice({acceptAllDevices: true,
-        optionalServices: ['6e400001-b5a3-f393-e0a9-e50e24dcca9e']});//{ filters: [{ services: [primaryServiceUuid] }] });
+        optionalServices: [primaryServiceUuid]});//{ filters: [{ services: [primaryServiceUuid] }] });
   const server = await device.gatt.connect();
   const service = await server.getPrimaryService(primaryServiceUuid);
   receiveCharacteristic = await service.getCharacteristic(receiveCharUuid);
@@ -29,7 +29,8 @@ connectButton.onclick = async () => {
 
 const listen = () => {
   receiveCharacteristic.addEventListener('characteristicvaluechanged', (evt) => {
-    const value = evt.target.value.getInt16(0, true);
+    //const value = evt.target.value.getInt16(0, true);
+    const value = evt.target.readValue();
     deviceHeartbeat.innerText = value;
   });
   receiveCharacteristic.startNotifications();
