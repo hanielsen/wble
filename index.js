@@ -29,8 +29,8 @@ connectButton.onclick = async () => {
 
 const listen = () => {
   receiveCharacteristic.addEventListener('characteristicvaluechanged', (evt) => {
-    const value = evt.target.value.getInt16(0, true);
-    //const value = evt.target.readValue();
+    //const value = evt.target.value.getInt16(0, true);
+    const value = new TextDecoder().decode(evt.target.value);
     deviceHeartbeat.innerText = value;
   });
   receiveCharacteristic.startNotifications();
