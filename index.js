@@ -46,7 +46,7 @@ const hexToRgb = (hex) => {
 
 colourButton.onclick = async () => {
   const data = new Uint8Array([1, ...hexToRgb(colourPicker.value)]);
-  sendCharacteristic.writeValue(data);
+  sendCharacteristic.writeValue(new TextEncoder().encode('data\n'));
 };
 
 disconnectButton.onclick = async () => {
